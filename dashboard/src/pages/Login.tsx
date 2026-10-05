@@ -70,15 +70,18 @@ export function Login({ onLogin }: LoginProps) {
   return (
     <div className="login-container">
       <div className="login-card">
-        <div className="login-logo">
-          <img src="/openwa_logo.webp" alt="OpenWA" className="logo-icon" />
-          <span className="version-info">
-            {t('login.version', {
-              version: __APP_VERSION__,
-              // ISO date (YYYYMMDD) so the format is stable across locales/regions instead of the
-              // locale-dependent toLocaleDateString() which renders differently per browser region.
-              date: new Date(__BUILD_TIME__).toISOString().slice(0, 10).replace(/-/g, ''),
-            })}
+        <div className="login-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img 
+            src="https://www.jortechjo.com/uploads/settings/69ff8042503c0.png" 
+            alt="JOR Tech" 
+            className="logo-icon" 
+            style={{ maxHeight: '80px', width: 'auto', objectFit: 'contain', marginBottom: '10px' }} 
+          />
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, margin: '4px 0', color: 'inherit' }}>
+            منصة وأكاديمية JOR Tech
+          </h2>
+          <span className="version-info" style={{ fontSize: '0.85rem', color: '#3b82f6', fontWeight: 600 }}>
+            نظام إدارة وأتمتة الواتساب | v{__APP_VERSION__}
           </span>
         </div>
 
@@ -122,17 +125,17 @@ export function Login({ onLogin }: LoginProps) {
         </form>
 
         <p className="login-help">
-          {t('login.help')}{' '}
-          <a href="https://docs.open-wa.org" target="_blank" rel="noopener noreferrer">
-            {t('login.viewDocs')}
+          هل تحتاج مساعدة؟{' '}
+          <a href="https://www.jortechjo.com" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600 }}>
+            زيارة منصة JOR Tech
           </a>
         </p>
       </div>
 
       <footer className="login-footer">
-        <span>{t('login.footer')}</span>
+        <span>منصة وأكاديمية JOR Tech | إشراف: أ. أحمد الصباغ</span>
         <a
-          href="https://github.com/rmyndharis/OpenWA"
+          href="https://github.com/ahmadsalsabbagh-sys/jor-tech"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
