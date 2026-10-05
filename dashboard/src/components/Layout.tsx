@@ -171,8 +171,13 @@ export function Layout({ onLogout, userRole }: LayoutProps) {
             {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="mobile-brand">
-            <img src="/openwa_logo.webp" alt="OpenWA" className="sidebar-logo" />
-            <span className="brand-name">{t('common.appName')}</span>
+            <img 
+              src="https://www.jortechjo.com/uploads/settings/69ff8042503c0.png" 
+              alt="JOR Tech" 
+              className="sidebar-logo" 
+              style={{ objectFit: 'contain', height: '36px' }} 
+            />
+            <span className="brand-name">JOR Tech</span>
           </div>
           <div style={{ width: 40 }} />
         </header>
@@ -184,11 +189,18 @@ export function Layout({ onLogout, userRole }: LayoutProps) {
         className={`sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobile ? 'mobile' : ''} ${isMobileOpen ? 'open' : ''}`}
       >
         <div className="sidebar-header">
-          <img src="/openwa_logo.webp" alt="OpenWA" className="sidebar-logo" />
+          <img 
+            src="https://www.jortechjo.com/uploads/settings/69ff8042503c0.png" 
+            alt="JOR Tech" 
+            className="sidebar-logo" 
+            style={{ objectFit: 'contain', height: '40px' }} 
+          />
           {!isCollapsed && (
             <div className="sidebar-brand">
-              <span className="brand-name">{t('common.appName')}</span>
-              <span className="brand-version">v{version}</span>
+              <span className="brand-name">JOR Tech</span>
+              <span className="brand-version" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#3b82f6' }}>
+                منصة وأكاديمية
+              </span>
               {update && (
                 <a className="brand-update" href={update.url} target="_blank" rel="noopener noreferrer">
                   {t('common.updateAvailable', { version: update.latest })}
