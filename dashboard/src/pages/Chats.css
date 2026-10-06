@@ -3,9 +3,9 @@
    JOR Tech Platform & Academy - Designed for Ahmad Al-Sabbagh
    ============================================================================= */
 
-/* الصفحة الحاوية: مسافات ناعمة ومحكومة لمنع التمرير الخارجي */
+/* الصفحة الحاوية: رفع البوكس للأعلى وإلغاء الهوامش الميتة */
 .chats-page {
-  padding: 0.75rem 1.25rem 1rem;
+  padding: 0.2rem 0.6rem 0.4rem !important;
   width: 100%;
   height: 100vh;
   max-height: 100vh;
@@ -15,35 +15,42 @@
   overflow: hidden; /* يمنع التمرير الخارجي نهائياً */
 }
 
-/* تنسيق الترويسة الخارجية المصغرة */
+/* تنسيق الترويسة الخارجية المصغرة ورفعها */
 .chats-page .page-header,
 .chats-page > div:first-child:not(.chats-layout) {
-  margin-bottom: 0.35rem;
-  padding: 0;
+  margin-bottom: 0.15rem !important;
+  padding: 0 !important;
+  transform: scale(0.88);
+  transform-origin: top right;
   flex-shrink: 0;
 }
 
-/* البوكس الرئيسي: أصبح أطول بكثير ليمتد لأسفل الشاشة بإطار هاتف أنيق */
+[dir='ltr'] .chats-page .page-header,
+[dir='ltr'] .chats-page > div:first-child:not(.chats-layout) {
+  transform-origin: top left;
+}
+
+/* البوكس الرئيسي: مرفوع للأعلى ويمتد لأسفل الشاشة بإطار أنيق */
 .chats-page .chats-layout {
   display: flex;
   flex: 1;
   min-height: 0;
   background: var(--bg-white);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden; /* يحبس التمرير بالداخل فقط */
   box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
-  height: calc(100vh - 5.5rem); /* أصبح أطول بكثير بدلاً من 12rem القديمة */
-  margin-top: 0.25rem;
+  height: calc(100vh - 3.5rem) !important;
+  margin-top: 0.1rem !important;
 }
 
 /* =============================================================================
-   الشريط الجانبي (قائمة المحادثات): مدمج ومرتب كأنه تطبيق هاتف
+   SIDEBAR: Left Column (Chat List & Sessions)
    ============================================================================= */
 .chats-page .chats-sidebar {
-  width: 360px;
-  max-width: 400px;
-  min-width: 320px;
+  width: 350px;
+  max-width: 380px;
+  min-width: 310px;
   border-inline-end: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -55,11 +62,11 @@
 
 /* ترويسة مصغرة ومنظمة للخيارات والكبسات */
 .chats-page .sidebar-header-box {
-  padding: 0.75rem 1rem;
+  padding: 0.4rem 0.65rem !important;
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* مسافات مضغوطة وأنيقة */
+  gap: 0.3rem !important;
   background: var(--bg-light, #f0f2f5);
 }
 
@@ -73,11 +80,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin: 0;
 }
 
 .chats-page .session-select-group label {
-  font-size: 0.75rem;
+  font-size: 0.72rem !important;
   font-weight: 600;
   color: var(--text-muted);
   white-space: nowrap;
@@ -85,17 +93,18 @@
 
 .chats-page .session-selector {
   flex: 1;
-  padding: 0.35rem 0.65rem;
+  padding: 0.2rem 0.5rem !important;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px !important;
   background: var(--bg-white);
   color: var(--text-primary);
-  font-size: 0.8rem;
+  font-size: 0.75rem !important;
   font-weight: 600;
   outline: none;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  height: 26px !important;
 }
 
 .chats-page .session-selector:hover {
@@ -117,21 +126,21 @@
 /* كبسات التبويبات الفلترة (المحادثات، القنوات، الحالة) كأزرار كبس مصغرة مع أنيميشن */
 .chats-page .chats-tabs {
   display: flex;
-  gap: 4px;
-  padding: 2px;
+  gap: 3px;
+  padding: 1px 0;
   background: transparent;
   border: none;
 }
 
 .chats-page .chats-tab {
   flex: 1;
-  padding: 5px 8px;
+  padding: 2px 5px !important;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px !important;
   background: var(--bg-white);
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.78rem;
+  font-size: 0.72rem !important;
   font-weight: 500;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
@@ -151,7 +160,7 @@
   color: #008069;
   border-color: #00a884;
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(0, 168, 132, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 168, 132, 0.15);
 }
 
 [data-theme='dark'] .chats-page .chats-tab {
@@ -170,24 +179,27 @@
 .chats-page .chat-search-input {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.75rem;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem !important;
   background: var(--bg-white);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 16px !important;
   transition: all 0.2s ease;
+  height: 26px !important;
 }
 
 .chats-page .chat-search-input svg {
   color: var(--text-muted);
   flex-shrink: 0;
+  width: 13px;
+  height: 13px;
 }
 
 .chats-page .chat-search-input input {
   flex: 1;
   border: none;
   background: none;
-  font-size: 0.8125rem;
+  font-size: 0.76rem !important;
   color: var(--text-primary);
   outline: none;
 }
@@ -235,9 +247,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1.5rem;
+  padding: 2rem 1rem;
   color: var(--text-muted);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   gap: 0.5rem;
 }
 
@@ -246,7 +258,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 0.85rem !important;
   border-bottom: 1px solid var(--border);
   cursor: pointer;
   transition: all 0.15s ease;
@@ -272,8 +284,8 @@
 }
 
 .chats-page .chat-avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--bg-light);
   border: 1px solid var(--border);
@@ -302,7 +314,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.15rem;
   min-width: 0;
 }
 
@@ -314,7 +326,7 @@
 }
 
 .chats-page .chat-item-name {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -323,7 +335,7 @@
 }
 
 .chats-page .chat-item-time {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   flex-shrink: 0;
   margin-inline-start: auto;
@@ -336,12 +348,12 @@
 }
 
 .chats-page .chat-item-snippet {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 190px;
+  max-width: 180px;
 }
 
 .chats-page .chat-item-snippet .no-message {
@@ -355,10 +367,10 @@
   justify-content: center;
   height: 18px;
   min-width: 18px;
-  padding: 0 5px;
+  padding: 0 4px;
   background: var(--primary, #25d366);
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   line-height: 1;
   border-radius: 999px;
@@ -366,8 +378,8 @@
 }
 
 .chats-page .chat-kind-badge {
-  font-size: 0.68rem;
-  padding: 0 5px;
+  font-size: 0.66rem;
+  padding: 0 4px;
   border-radius: 6px;
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -375,7 +387,7 @@
 }
 
 /* =============================================================================
-   مساحة المحادثة (اليمين): تصميم شاشة الهاتف الممتدة
+   CHAT ROOM: Right Column
    ============================================================================= */
 .chats-page .chats-room {
   flex: 1;
@@ -428,13 +440,13 @@
 
 /* ترويسة الغرفة العلوية المصغرة */
 .chats-page .room-header {
-  height: 58px;
+  height: 54px !important;
   background: var(--bg-white);
   border-bottom: 1px solid var(--border);
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   box-sizing: border-box;
   flex-shrink: 0;
 }
@@ -467,8 +479,8 @@
 }
 
 .chats-page .room-avatar {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--bg-light);
   border: 1px solid var(--border);
@@ -495,7 +507,7 @@
 }
 
 .chats-page .room-contact-info h3 {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
@@ -505,30 +517,27 @@
 }
 
 .chats-page .room-contact-phone {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .chats-page .room-contact-jid {
-  font-size: 0.6875rem;
+  font-size: 0.65rem;
   color: var(--text-muted);
-  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: ui-monospace, 'SF Mono', monospace;
   opacity: 0.7;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* شاشة الرسائل: التمرير محبوس داخلها فقط مع خلفية واتساب */
 .chats-page .room-messages {
   flex: 1;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.25rem !important;
   overflow-y: auto;
   overflow-anchor: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
   background-color: #efeae2;
   background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0);
   background-size: 20px 20px;
@@ -554,8 +563,8 @@
   right: 1.5rem;
   bottom: 1rem;
   z-index: 5;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -615,6 +624,9 @@
   padding: 2rem;
 }
 
+/* =============================================================================
+   إصلاح فقاعات الرسائل ومنع انكسار وتشوّه النصوص (FIX BUBBLES)
+   ============================================================================= */
 .chats-page .message-bubble-wrapper {
   display: flex;
   width: 100%;
@@ -628,14 +640,34 @@
   justify-content: flex-end;
 }
 
-.chats-page .message-bubble {
-  max-width: 70%;
-  padding: 0.45rem 0.75rem 0.35rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  line-height: 1.45;
+.chats-page .message-bubble-container {
   position: relative;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  max-width: 82% !important; /* توسيع العرض لتجنب انضغاط الكلمات */
+  min-width: fit-content !important;
+}
+
+.chats-page .message-bubble-wrapper.outgoing .message-bubble-container {
+  flex-direction: row-reverse;
+}
+
+.chats-page .message-bubble-wrapper.incoming .message-bubble-container {
+  flex-direction: row;
+}
+
+.chats-page .message-bubble {
+  min-width: 90px !important; /* ضمان عدم انكماش الكلمات مثل (احب ك) و (امدح ي) */
+  max-width: 100% !important;
+  width: fit-content !important;
+  padding: 0.45rem 0.75rem 0.35rem !important;
+  border-radius: 8px;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+  position: relative;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box !important;
 }
 
 .chats-page .message-bubble.incoming {
@@ -646,11 +678,12 @@
 }
 
 .chats-page .message-bubble.outgoing {
-  background: #d9fdd3;
+  background: #d9fdd3; /* Soft WhatsApp Green */
   color: #111b21;
   border-start-end-radius: 0;
 }
 
+/* Dark theme outgoing chat bubble override */
 [data-theme='dark'] .chats-page .message-bubble.incoming {
   background: #202c33;
   color: #e9edef;
@@ -658,10 +691,11 @@
 }
 
 [data-theme='dark'] .chats-page .message-bubble.outgoing {
-  background: #005c4b;
+  background: #005c4b; /* Dark WhatsApp Green */
   color: #e9edef;
 }
 
+/* System-dark twin */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .chats-page .message-bubble.incoming {
     background: #202c33;
@@ -674,17 +708,35 @@
   }
 }
 
+/* إصلاح تكسر الكلمات لتظهر الجمل طبيعية ومتصلة */
 .chats-page .message-text {
-  word-break: break-word;
-  white-space: pre-wrap;
+  word-break: normal !important; /* يمنع انقسام الكلمة العربية الواحدة إلى حرفين */
+  overflow-wrap: break-word !important; /* يكسر فقط الروابط والنصوص الطويلة جداً */
+  word-wrap: break-word !important;
+  white-space: pre-wrap !important;
+  min-width: 0;
 }
 
+/* =============================================================================
+   إبراز اسم مرسل الرسالة في المجموعات (GROUP SENDER DISPLAY)
+   ============================================================================= */
 .chats-page .message-sender {
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0.15rem;
-  word-break: break-word;
+  display: block !important;
+  visibility: visible !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  margin-bottom: 0.2rem !important;
+  color: #008069 !important; /* لون واتساب الزيتي المميز لأسماء أعضاء الجروب */
+  user-select: text !important;
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08) !important;
+  padding-bottom: 2px !important;
+}
+
+[data-theme='dark'] .chats-page .message-sender {
+  color: #53bdeb !important; /* لون أزرق سياوي ساطع وواضح في الوضع الليلي */
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .chats-page .message-meta {
@@ -696,8 +748,8 @@
 }
 
 .chats-page .message-time {
-  font-size: 0.6875rem;
-  color: var(--text-muted);
+  font-size: 0.66rem;
+  color: var(--text-muted, #667781);
 }
 
 .chats-page .message-bubble[style] .message-time {
@@ -710,16 +762,16 @@
 }
 
 .chats-page .message-status-icon.read {
-  color: #337592;
+  color: #53bdeb;
 }
 
 /* =============================================================================
-   شريط الإدخال السفلي
+   INPUT BAR: Bottom Footer
    ============================================================================= */
 .chats-page .room-input-footer {
   background: var(--bg-white);
   border-top: 1px solid var(--border);
-  padding: 0.65rem 1rem;
+  padding: 0.5rem 0.85rem !important;
   box-sizing: border-box;
   flex-shrink: 0;
 }
@@ -731,17 +783,17 @@
 
 .chats-page .input-form {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   align-items: center;
 }
 
 .chats-page .message-text-input {
   flex: 1;
   min-width: 64px;
-  padding: 0.6rem 1rem;
+  padding: 0.55rem 1rem !important;
   border: 1px solid var(--border);
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   background: var(--bg-light);
   color: var(--text-primary);
   outline: none;
@@ -761,25 +813,24 @@
   border-color: #2f3b43;
 }
 
-/* زر الإرسال الدائري */
 .chats-page .btn-send-message {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--primary);
+  width: 38px;
+  height: 38px;
+  background: var(--primary, #00a884);
   border: none;
   border-radius: 50%;
   color: white;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 168, 132, 0.3);
 }
 
 .chats-page .btn-send-message:hover:not(:disabled) {
-  background: var(--primary-hover);
+  background: var(--primary-hover, #008f6f);
   transform: scale(1.08);
 }
 
@@ -790,40 +841,14 @@
 .chats-page .btn-send-message:disabled {
   background: var(--primary);
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
-}
-
-/* أزرار المرفقات والإيموجي الدائرية */
-.chats-page .btn-input-accessory {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.18s ease;
-  flex-shrink: 0;
-}
-
-.chats-page .btn-input-accessory:hover {
-  background: var(--bg-light);
-  color: var(--text-primary);
-  transform: scale(1.1);
-}
-
-.chats-page .btn-input-accessory.active {
-  background: rgba(34, 197, 94, 0.1);
-  color: var(--primary-text);
+  transform: none;
 }
 
 /* =============================================================================
-   الحالات والأخطاء
+   GENERAL CHATS STYLES & ERROR STATES
    ============================================================================= */
 .chats-page .chats-loading-container,
 .chats-page .chats-error-state {
@@ -876,8 +901,34 @@
 }
 
 /* =============================================================================
-   معاينة المرفقات والإيموجي
+   ATTACHMENT PREVIEW & EMOJI PICKER
    ============================================================================= */
+.chats-page .btn-input-accessory {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.chats-page .btn-input-accessory:hover {
+  background: var(--bg-light);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.chats-page .btn-input-accessory.active {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--primary-text);
+}
+
 .chats-page .attachment-preview-banner {
   background: var(--bg-white);
   border-top: 1px solid var(--border);
@@ -986,11 +1037,11 @@
 }
 
 /* =============================================================================
-   التجاوب مع الشاشات والهواتف (Responsive)
+   RESPONSIVENESS (Desktops, Tablets, Mobiles)
    ============================================================================= */
 @media (max-width: 768px) {
   .chats-page {
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.4rem;
     height: calc(100dvh - 3.5rem);
   }
 
@@ -1053,7 +1104,7 @@
 }
 
 /* =============================================================================
-   عرض الوسائط المتعددة (Media Rendering)
+   MEDIA RENDERING STYLES
    ============================================================================= */
 .chats-page .chat-image-media {
   max-width: 100%;
@@ -1145,14 +1196,14 @@
 }
 
 /* =============================================================================
-   قوائم التفاعل والكبسات الدائرية على الرسائل
+   HOVER MENU, REPLIES, REACTIONS, AND DELETIONS
    ============================================================================= */
 .chats-page .message-bubble-container {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  max-width: 72%;
+  max-width: 82% !important;
 }
 
 .chats-page .message-bubble-wrapper.outgoing .message-bubble-container {
@@ -1500,7 +1551,7 @@
 }
 
 /* =============================================================================
-   القنوات (Channels)
+   CHANNELS: read-only post pane
    ============================================================================= */
 .chats-page .channel-room {
   flex: 1;
@@ -1510,10 +1561,10 @@
 }
 
 .chats-page .chats-room-header {
-  height: 58px;
+  height: 54px !important;
   background: var(--bg-white);
   border-bottom: 1px solid var(--border);
-  padding: 0 1.25rem;
+  padding: 0 1rem !important;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -1568,7 +1619,7 @@
 }
 
 /* =============================================================================
-   نافذة إنشاء الحالة (Status Compose Modal)
+   STATUS COMPOSE MODAL
    ============================================================================= */
 .chats-page .status-compose-trigger {
   display: flex;
