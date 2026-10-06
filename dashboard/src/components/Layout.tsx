@@ -199,7 +199,7 @@ export function Layout({ onLogout, userRole }: LayoutProps) {
             <div className="sidebar-brand">
               <span className="brand-name">JOR Tech</span>
               <span className="brand-version" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#3b82f6' }}>
-                منصة وأكاديمية
+                منصة وأكاديمية · v{version}
               </span>
               {update && (
                 <a className="brand-update" href={update.url} target="_blank" rel="noopener noreferrer">
